@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>GrihaShuddhi</title>
+  <style>
+    /* Intense, full aesthetic CSS for GrihaShuddhi - mandala, glow, particles, motion */
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap');
+    :root{
+      --gulabi:#E8BFC6; /* soft pink */
+      --tulsi:#2F4A3A;  /* deep green */
+      --mint:#A8C9A1;   /* light green */
+      --haldi:#E7C766;  /* warm yellow */
+      --mitti:#B89B7A;  /* soft brown */
+      --cream:#F7F3EC;
+      --accent:#d6246c;
+    }
+
+    *{box-sizing:border-box}
+    body{
+      font-family:'Poppins',system-ui,-apple-system,Segoe UI,Roboto,"Noto Sans",sans-serif;
+      margin:0;padding:0;overflow-x:hidden;color:var(--tulsi);
+      background:
+        radial-gradient(circle at 10% 20%, rgba(232,191,198,0.06) 0 10%, transparent 30%),
+        radial-gradient(circle at 90% 80%, rgba(231,199,102,0.05) 0 12%, transparent 34%),
+        linear-gradient(180deg, #fffaf8 0%, #fff9ee 100%);
+    }
+
+    /* Massive decorative mandala tiled background using uploaded image */
+    body::after{
+      content:"";
+      pointer-events:none;
+      position:fixed;inset:-10% -10% -10% -10%;
+      background-image: url('/mnt/data/A_promotional_banner_for_GrihaShuddhi,_an_eco-frie.png');
+      background-repeat: repeat;
+      background-size: 30rem 30rem;
+      opacity:0.06;filter:grayscale(20%) contrast(110%) saturate(80%);
+      transform: scale(1.02) rotate(2deg);
+      z-index:0;
+      mix-blend-mode: overlay;
+      animation: slowRotate 40s linear infinite;
+    }
+
+    @keyframes slowRotate{from{transform:scale(1.02) rotate(0deg)}to{transform:scale(1.02) rotate(360deg)}}
+
+    header{position:relative;z-index:10;text-align:center;padding:64px 22px;background:linear-gradient(135deg,var(--gulabi), #fff1e6 40%, #f8ffe9);border-bottom:6px double rgba(214,36,108,0.12);}
+    header h1{font-size:3.2rem;margin:0;color:var(--accent);letter-spacing:1px;text-transform:capitalize;text-shadow:0 4px 18px rgba(214,36,108,0.12)}
+    .tagline{margin-top:8px;font-size:1.1rem;color:var(--tulsi);font-weight:600}
+
+    /* Animated gradient sheen on header */
+    header::before{content:"";position:absolute;left:-10%;top:-10%;width:120%;height:120%;background:linear-gradient(120deg, rgba(255,255,255,0.12), rgba(255,255,255,0.02) 30%, rgba(231,199,102,0.06));mix-blend-mode:soft-light;animation:headerGlow 6s ease-in-out infinite;opacity:0.9}
+    @keyframes headerGlow{0%{filter:blur(0px);transform:translateY(0)}50%{filter:blur(6px);transform:translateY(-6px)}100%{filter:blur(0px);transform:translateY(0)}}
+
+    /* Sticky Nav */
+    .nav{position:sticky;top:10px;margin:0 auto;z-index:60;backdrop-filter:blur(8px);background:rgba(255,255,255,0.55);border-radius:999px;padding:8px 18px;max-width:1100px;box-shadow:0 6px 30px rgba(0,0,0,0.08);display:flex;align-items:center;justify-content:space-between;margin-top:-36px}
+    .nav .brand{font-weight:800;color:var(--accent);font-size:1.05rem}
+    .nav-links a{color:var(--tulsi);text-decoration:none;margin-left:14px;font-weight:600;padding:8px 12px;border-radius:10px;transition:all .25s}
+    .nav-links a:hover{background:linear-gradient(90deg,rgba(232,191,198,0.18),rgba(231,199,102,0.12));transform:translateY(-4px);color:#fff}
+
+    .section{position:relative;z-index:20;padding:64px 18px;max-width:1200px;margin:0 auto}
+    h2{text-align:center;font-size:2.1rem;color:var(--accent);margin-bottom:18px}
+
+    /* vision card */
+    .vision{border-radius:22px;padding:36px;background:linear-gradient(135deg,rgba(255,238,245,0.9),rgba(255,250,235,0.9));box-shadow:0 30px 80px rgba(47,74,58,0.06), inset 0 1px 0 rgba(255,255,255,0.6);border:1px solid rgba(214,36,108,0.06)}
+    .vision p{margin:0 0 12px;color:var(--tulsi);line-height:1.8;font-size:1.05rem}
+    .color-word{font-weight:800;background:linear-gradient(90deg,#d6246c,#ff8a00);-webkit-background-clip:text;color:transparent}
+
+    /* product grid */
+    .products{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:22px;margin-top:28px}
+
+    /* intense card styles */
+    .card{position:relative;overflow:hidden;border-radius:20px;padding:22px;background:linear-gradient(180deg,rgba(255,255,255,0.92),rgba(255,255,255,0.78));border:1px solid rgba(255,255,255,0.6);box-shadow:0 18px 40px rgba(47,74,58,0.06);transition:transform .45s cubic-bezier(.2,.9,.3,1),box-shadow .35s}
+    .card::before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 10% 10%, rgba(232,191,198,0.06), transparent 12%);mix-blend-mode:overlay;pointer-events:none}
+    .card h3{margin:0 0 8px;color:var(--accent)}
+    .card p{margin:0;color:#2f4a3a}
+    .card:hover{transform:translateY(-12px) scale(1.02);box-shadow:0 30px 80px rgba(47,74,58,0.12)}
+
+    /* animated icon backgrounds */
+    .icon-bg{width:56px;height:56px;border-radius:12px;display:inline-flex;align-items:center;justify-content:center;margin-right:12px;background:linear-gradient(135deg,var(--gulabi),var(--haldi));color:#fff;font-size:22px;box-shadow:0 8px 24px rgba(214,36,108,0.08)}
+
+    /* Sanskrit dividers */
+    .sanskrit-divider{font-size:1.2rem;color:var(--accent);text-align:center;margin:22px 0;letter-spacing:2px}
+
+    /* mandala watermark larger and dynamic */
+    .mandala-large{position:fixed;right:-10%;top:-10%;width:70vmax;height:70vmax;background-image:url('/mnt/data/A_promotional_banner_for_GrihaShuddhi,_an_eco-frie.png');background-repeat:no-repeat;background-size:contain;opacity:0.035;filter:grayscale(40%) blur(2px);transform:rotate(-12deg);z-index:1;pointer-events:none}
+
+    /* particles (subtle) */
+    .particles{position:fixed;left:0;top:0;right:0;bottom:0;z-index:0;pointer-events:none;background-image:radial-gradient(circle at 10% 20%, rgba(255,255,255,0.06) 0 1px, transparent 2px), radial-gradient(circle at 80% 60%, rgba(255,240,200,0.04) 0 1px, transparent 2px);opacity:0.9}
+
+    /* footer */
+    footer{padding:28px;text-align:center;background:linear-gradient(180deg,rgba(247,217,227,0.9),rgba(247,217,227,0.75));border-top:1px solid rgba(214,36,108,0.06);z-index:10}
+
+    /* reveal animations */
+    .reveal{opacity:0;transform:translateY(20px);transition:opacity .9s ease,transform .9s ease}
+    .reveal.visible{opacity:1;transform:translateY(0)}
+
+    /* back to top */
+    #topBtn{position:fixed;right:28px;bottom:28px;background:var(--mint);color:var(--tulsi);padding:12px 16px;border-radius:999px;border:none;display:none;box-shadow:0 10px 30px rgba(47,74,58,0.12);cursor:pointer}
+
+    /* Lotus animation */
+  .lotus{
+    position:fixed;
+    bottom:40px;
+    left:50%;
+    transform:translateX(-50%);
+    width:90px;
+    height:90px;
+    background:url('https://upload.wikimedia.org/wikipedia/commons/thumb/0/03/Indian_Lotus.svg/512px-Indian_Lotus.svg.png') no-repeat center/contain;
+    animation: lotusFloat 6s ease-in-out infinite, lotusGlow 4s ease-in-out infinite;
+    opacity:0.9;
+    z-index:50;
+    pointer-events:none;
+  }
+
+  @keyframes lotusFloat{
+    0%{transform:translateX(-50%) translateY(0)}
+    50%{transform:translateX(-50%) translateY(-18px)}
+    100%{transform:translateX(-50%) translateY(0)}
+  }
+
+  @keyframes lotusGlow{
+    0%{filter:drop-shadow(0 0 4px rgba(255,182,193,0.4))}
+    50%{filter:drop-shadow(0 0 14px rgba(214,36,108,0.5))}
+    100%{filter:drop-shadow(0 0 4px rgba(255,182,193,0.4))}
+  }
+</style>
+
+  <script>
+    // Back-to-top visibility
+    window.addEventListener('scroll', function(){
+      const btn = document.getElementById('topBtn');
+      if (!btn) return;
+      if (window.scrollY > 300) btn.style.display = 'block'; else btn.style.display = 'none';
+    });
+
+    // Intersection observer for reveal animations
+    document.addEventListener('DOMContentLoaded', function(){
+      const obs = new IntersectionObserver((entries) =>{
+        entries.forEach(e=>{
+          if(e.isIntersecting) e.target.classList.add('visible');
+        });
+      },{threshold:0.15});
+      document.querySelectorAll('.card, .vision, .sanskrit-divider, h2').forEach(el=> obs.observe(el));
+    });
+  </script>
+</head>
+
+<body>
+  <header>
+    <h1>GrihaShuddhi</h1>
+    <div class="tagline">गृहशुद्धिः — शुचिता जीवनस्य शोभा।</div>
+  </header>
+
+  <!-- Sticky Nav -->
+  <nav class="nav">
+    <div class="nav-inner">
+      <div class="brand">GrihaShuddhi</div>
+      <div class="nav-links">
+        <a href="#vision">Vision</a>
+        <a href="#products">Products</a>
+        <a href="#why">Why Us</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </div>
+  </nav>
+
+  <section class="section">
+    <div class="sanskrit-divider">॥ दृष्टिः ॥</div>
+    <h2>Our Vision</h2>
+    <div class="vision">
+      GrihaShuddhi was born from a simple thought — what if the purest form of cleanliness comes from the things we often throw away? Inspired by traditional Indian households where nothing went to waste, our brand transforms everyday kitchen scraps into gentle, natural cleaners.
+      <br><br>
+      With soft <span class="color-word">gulabi hues</span>, <span class="color-word">tulsi greens</span>, and the warmth of <span class="color-word">haldi</span>, GrihaShuddhi celebrates purity that feels both desi and modern.
+      <br><br>
+      Every product is biodegradable, handcrafted, and rooted in the idea that a clean home should also mean a clean planet. Because in a world full of chemicals, we choose <span class="color-word">shuddhata</span>, <span class="color-word">prakriti</span>, and <span class="color-word">saumya care</span>.
+      <br><br>
+      <strong>GrihaShuddhi — गृहशुद्धिः - शुचिता जीवनस्य शोभा।</strong>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="sanskrit-divider">॥ उत्पादाः ॥</div>
+    <h2>Our Products</h2>
+    <div class="why-choose">
+      <div class="card"><span class='icon-animate'>🌸</span> <strong>Gulabi Citrus–Aloe Shampoo</strong><br>Made from lemon peel decoction, aloe scrap gel, malai, raisin water & citrus infusion.</div>
+      <div class="card"><span class='icon-animate'>🌿</span> <strong>Tulsi Fresh Mop Liquid</strong><br>Made using vinegar, warm water, lemon juice, baking soda & natural tulsi fragrance.</div>
+      <div class="card"><span class='icon-animate'>🌼</span> <strong>Haldi-Neer Glass Cleaner</strong><br>Made with vinegar, water, lemon juice, essential oil & rubbing alcohol for shine.</div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="sanskrit-divider">॥ किमर्थं वरणीयम् ॥</div>
+    <h2>Why Choose Us</h2>
+    <div class="why-choose">
+      <div class="card">✔ 100% Natural & Biodegradable</div>
+      <div class="card">✔ Made from repurposed kitchen waste</div>
+      <div class="card">✔ Chemical-free & family safe</div>
+      <div class="card">✔ Inspired by traditional Indian practices</div>
+      <div class="card">✔ Eco-friendly packaging</div>
+      <div class="card">✔ Soft fragrances, gentle cleansing</div>
+    </div>
+  </section>
+
+  <footer>
+    © 2025 GrihaShuddhi — Crafted with care for your home & planet.
+  </footer>
+  <div class="lotus"></div>
+</body>
+</html>
